@@ -58,6 +58,15 @@ while(i==1){
 					scanf("%lf", &numerador);
 					printf("\nDigite o denominador: ");
 					scanf("%lf", &denominador);
+
+					while (denominador==0){
+						printf("Divisao por zero! Digite um denominador diferente de zero: ");
+						scanf("%lf", &denominador);
+						if (denominador!=0){
+							break;
+						}
+					}
+					
 					angRad = numerador*PI/denominador;
 			
 				} else if (opPI==2){
@@ -95,7 +104,6 @@ while(i==1){
 					
 				//TANGENTE
 				case 3:
-					//angGrau = angRad*180.0/PI;
 					if(tangente > 58) {
 	    				printf("\nO valor da tangente nao eh determinado\n");
 	    			
@@ -107,7 +115,7 @@ while(i==1){
 				
 				//SECANTE	
 				case 4:
-					if(fabs(cosseno) < pow(1,-10)) {
+					if(fabs(cosseno) < 1e-6) {
 	     			printf("\nO valor da secante nao eh determinado\n");
 	     			
 					}else {
@@ -117,7 +125,7 @@ while(i==1){
 					
 				//COSSECANTE	
 				case 5:
-					if(fabs(seno) < pow(1,-10)) {
+					if(fabs(seno) < 1e-6) {
 	     				printf("\nO valor da cossecante nao eh determinado\n");
 	     				
 					}else if (seno!=0){
@@ -173,6 +181,8 @@ while(i==1){
 			
 	}
 	
+	opPI=0;
+
 	printf("\n\nAperte 1 para continuar ou qualquer tecla para sair: ");
 	scanf("%d", &i);
 	
