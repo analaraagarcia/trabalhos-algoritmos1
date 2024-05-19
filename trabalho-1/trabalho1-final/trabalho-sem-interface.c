@@ -17,7 +17,7 @@ int main(){
 	
 	
 	
-	printf("\nCalculadora de funcoes trigonometricas!\n");
+	printf("\nCalculadora trigonometrica!\n");
 	printf("\n----------------------------------------\n\n");
 	
 while(i==1){
@@ -104,7 +104,7 @@ while(i==1){
 					
 				//TANGENTE
 				case 3:
-					if(tangente > 58) {
+					if(tangente>5730 || tangente<-5730) {
 	    				printf("\nO valor da tangente nao eh determinado\n");
 	    			
 					}else {
@@ -160,19 +160,33 @@ while(i==1){
 			}
 			scanf("%lf", &arco);
 			
-			//COLOCAR OS ARCOS!!!
 			switch (opFuncao){
+
 				//ARCO SENO
 				case 7:
+					while(arco>1 || arco<-1) {
+				    printf("Valor de seno inexistente. Digite o valor do seno novamente:");
+				    scanf("%lf", &arco);
+					}
 					printf("\nO arco seno eh igual a %.3lf radianos ou %.3lf graus", asin(arco), asin(arco)*180.0/PI);
 					break;
-					
+
+				//ARCO COSSENO	
 				case 8:
+					while(arco>1 || arco<-1) {
+				    	printf("Valor de cosseno inexistente. Digite o valor do cosseno novamente:");
+				    	scanf("%lf", &arco);
+					}
 					printf("\nO arco cosseno eh igual a %.3lf radianos ou %.3lf graus", acos(arco), acos(arco)*180.0/PI);
 					break;
 				
+				//ARCO TANGENTE
 				case 9:
-					printf("\nO arco tangente eh igual a %.3lf radianos ou %.3lf graus", atan(arco), atan(arco)*180.0/PI);
+					if (arco>100000 || arco<-100000){
+				    	printf("Esse arco nao pode ser determinado\n");
+					} else {
+						printf("\nO arco tangente eh igual a %.3lf radianos ou %.3lf graus", atan(arco), atan(arco)*180.0/PI);
+					}
 					break;
 				
 			}
